@@ -16,7 +16,7 @@ RV NO_DEFAULT_INITIALIZATION
 RV NO_OBSOLESCENT_FEATURES
 RV SPARK
 
-U mclock%b		mclock.adb		f67b104a NE OO SU
+U mclock%b		mclock.adb		6cd5fe91 NE OO SU
 W ada%s			ada.ads			ada.ali
 W ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
@@ -44,7 +44,7 @@ D fifo.ads		20141105194929 21637bc9
 D fifo.adb		20141107033504 e2c66441
 D interfac.ads		20110906094621 129923ea
 D i-cstrea.ads		20130102105938 3286f6aa
-D mclock.adb		20141107040108 ef759e57
+D mclock.adb		20141107050339 75db708c
 D system.ads		20140416144310 90249111
 D s-crtl.ads		20130102105938 1ea48bce
 D s-exctab.ads		20090417131547 66e51330
@@ -64,52 +64,53 @@ D s-traent.ads		20090417130712 5221ee41
 D s-unstyp.ads		20090409150019 6ae15c76
 D s-wchcon.ads		20090417130712 bfeb2e3d
 X 1 ada.ads
-16K9*Ada 19e8 16|2r6 2r23 119r17
+16K9*Ada 19e8 16|2r6 2r23 120r17
 X 9 a-textio.ads
-49K13*Text_IO 471e16 16|2w10 2r27 119r21
-166U14*New_Line 16|72s17 82s17 92s17 102s17 134s25
-242U14*Put 16|64s17 68s25 75s17 78s25 85s17 88s25 95s17 98s25 105s17 108s25
-. 119s29
+49K13*Text_IO 471e16 16|2w10 2r27 120r21
+166U14*New_Line 16|73s17 83s17 93s17 103s17 135s25
+242U14*Put 16|65s17 69s25 76s17 79s25 86s17 89s25 96s17 99s25 106s17 109s25
+. 120s29
 X 12 fifo.ads
 3k9*Fifo 20e9 16|1w6 5r33
 4R9 Fifo_Type 16|8r24[5] 9r25[5] 10r28[5] 11r25[5] 12r26[5]
-5U14 Push 16|25s17[5] 27s17[5] 35s25[5] 38s25[5] 41s25[5] 44s25[5] 47s25[5]
-. 69s25[5] 79s25[5] 89s25[5] 99s25[5] 109s25[5]
-6U14 Pop 16|24s17[5] 26s17[5] 67s25[5] 77s25[5] 87s25[5] 97s25[5] 107s25[5]
+5U14 Push 16|27s17[5] 28s17[5] 36s25[5] 39s25[5] 42s25[5] 45s25[5] 48s25[5]
+. 70s25[5] 80s25[5] 90s25[5] 100s25[5] 110s25[5]
+6U14 Pop 16|25s17[5] 26s17[5] 68s25[5] 78s25[5] 88s25[5] 98s25[5] 108s25[5]
 X 16 mclock.adb
-4U11*Mclock 4b11 137l5 137t11
+4U11*Mclock 4b11 138l5 138t11
 5K17 Int_Fifo[12|3] 6r13
-8r9 Tray_one_min{12|4R9[5]} 25m22 25r22 26m21 26r21 35m30 35r30 67m29 67r29
-. 69m30 69r30
-9r9 Tray_five_min{12|4R9[5]} 38m30 38r30 77m29 77r29 79m30 79r30
-10r9 Tray_fifteen_min{12|4R9[5]} 41m30 41r30 87m29 87r29 89m30 89r30
-11r9 Tray_one_hour{12|4R9[5]} 44m30 44r30 97m29 97r29 99m30 99r30
-12r9 Tray_collector{12|4R9[5]} 24m21 24r21 27m22 27r22 47m30 47r30 107m29
-. 107r29 109m30 109r30
-13i9 Val{integer} 24m37 25r35 26m35 27r38 67m43 68r43 69r44 77m44 78r43 79r45
-. 87m47 88r43 89r48 97m44 98r43 99r45 107m45 108r43 109r46
-14i9 H{integer} 125m9 126m9 129m25 131m25
-15i9 X{integer} 66r31 70m25 70r30 73m17 76r23 80m25 80r30 83m17 86r23 90m25
-. 90r30 93m17 96r23 100m25 100r30 103m17 106r23 110m25 110r30 112m17 124m9
-. 128r23 135m25 135r30
-16i9 size_of_one_min{integer} 57m17 66r36
-17i9 size_of_five_min{integer} 58m17 76r28
-18i9 size_of_fifteen_min{integer} 59m17 86r28
-19i9 size_of_one_hour{integer} 60m17 96r28
-20i9 size_of_collector{integer} 61m17 106r28
-22V18 tr{integer} 22b18 22>21 29t12
-22i21 status{integer} 28r24
-31V18 initial_tray_setup{integer} 31b18 31>37 51t12 125s14
-31i37 status{integer} 50r24
-34i21 I{integer}
-37i21 I{integer}
-40i21 I{integer}
-43i21 I{integer}
-46i21 I{integer}
-54V18 print_trays{integer} 54b18 54>30 114t12 129s30
-54i30 status{integer} 113r24
-65l17 While_Loop 71l26 71e36
-117V18 clear_screen{integer} 117b18 117>31 121t12 126s14 131s30
-117i31 status{integer} 120r24
-127l9 While_Loop 136l18 136e28
+8r9 Tray_one_min{12|4R9[5]} 26m21 26r21 27m22 27r22 36m30 36r30 68m29 68r29
+. 70m30 70r30
+9r9 Tray_five_min{12|4R9[5]} 39m30 39r30 78m29 78r29 80m30 80r30
+10r9 Tray_fifteen_min{12|4R9[5]} 42m30 42r30 88m29 88r29 90m30 90r30
+11r9 Tray_one_hour{12|4R9[5]} 45m30 45r30 98m29 98r29 100m30 100r30
+12r9 Tray_collector{12|4R9[5]} 25m21 25r21 28m22 28r22 48m30 48r30 108m29
+. 108r29 110m30 110r30
+13i9 Val{integer} 25m37 27r35 68m43 69r43 70r44 78m44 79r43 80r45 88m47 89r43
+. 90r48 98m44 99r43 100r45 108m45 109r43 110r46
+14i9 Temp{integer} 26m35 28r38
+15i9 H{integer} 125m9 126m9 130m25 132m25 134m25
+16i9 X{integer} 67r31 71m25 71r30 74m17 77r23 81m25 81r30 84m17 87r23 91m25
+. 91r30 94m17 97r23 101m25 101r30 104m17 107r23 111m25 111r30 113m17 127m9
+. 129r23 136m25 136r30
+17i9 size_of_one_min{integer} 58m17 67r36
+18i9 size_of_five_min{integer} 59m17 77r28
+19i9 size_of_fifteen_min{integer} 60m17 87r28
+20i9 size_of_one_hour{integer} 61m17 97r28
+21i9 size_of_collector{integer} 62m17 107r28
+23V18 tr{integer} 23b18 23>21 30t12 134s30
+23i21 status{integer} 29r24
+32V18 initial_tray_setup{integer} 32b18 32>37 52t12 125s14
+32i37 status{integer} 51r24
+35i21 I{integer}
+38i21 I{integer}
+41i21 I{integer}
+44i21 I{integer}
+47i21 I{integer}
+55V18 print_trays{integer} 55b18 55>30 115t12 130s30
+55i30 status{integer} 114r24
+66l17 While_Loop 72l26 72e36
+118V18 clear_screen{integer} 118b18 118>31 122t12 126s14 132s30
+118i31 status{integer} 121r24
+128l9 While_Loop 137l18 137e28
 

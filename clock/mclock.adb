@@ -11,6 +11,7 @@ procedure Mclock is
  	Tray_one_hour : Fifo_Type;-- fourth tray size 11
    	Tray_collector : Fifo_Type;-- this is a reserve tray size 21 (4+2+3+11+1(trigger))
   	Val : Integer;
+	Temp : Integer;
 	H : Integer;
 	X : Integer;
 	size_of_one_min : Integer;
@@ -22,9 +23,9 @@ procedure Mclock is
 	function tr(status: Integer) return Integer is
 	begin
 		Pop(Tray_collector, Val);
+		Pop(Tray_one_min, Temp);
 		Push(Tray_one_min,Val);
-		Pop(Tray_one_min, Val);
-		Push(Tray_collector, Val);
+		Push(Tray_collector, Temp);
 		return status;
 	end;
 	-- Initial tray setup start -----------------------------------
@@ -58,7 +59,7 @@ procedure Mclock is
 		size_of_five_min := 2;
 		size_of_fifteen_min := 3;
 		size_of_one_hour := 11;
-		size_of_collector := 21;
+		size_of_collector := 20;
 		--------------
 		--tray one min
 		Put("Tray A (one min):     ");
@@ -121,16 +122,16 @@ procedure Mclock is
 	end;
 	-- clear screen function end
 begin	-- main here
-	X := 0;
 	H := initial_tray_setup(1);
 	H := clear_screen(1);
+	X := 0;
 	While_Loop:
 		while X <= 3 loop
 			H := print_trays(1);
 			delay Duration(1.0);--print and wait for a sec
 			H := clear_screen(1);
-	--		H := tr(1);
 			delay Duration(1.0);--clear and wait for a sec
+			H := tr(1);
 			New_Line;
 			X := X + 1;
 	end loop While_Loop;
