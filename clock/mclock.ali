@@ -12,7 +12,7 @@ RV NO_STANDARD_STORAGE_POOLS
 RV NO_DEFAULT_INITIALIZATION
 RV SPARK
 
-U mclock%b		mclock.adb		f5922c40 NE OO SU
+U mclock%b		mclock.adb		7e521690 NE OO SU
 W ada%s			ada.ads			ada.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
 W ada.tags%s		a-tags.adb		a-tags.ali
@@ -37,7 +37,7 @@ D fifo.ads		20141105194929 21637bc9
 D fifo.adb		20141105202841 59080d0a
 D interfac.ads		20110906094621 129923ea
 D i-cstrea.ads		20130102105938 3286f6aa
-D mclock.adb		20141105205956 ec9ca25d
+D mclock.adb		20141107023129 675c988d
 D system.ads		20140416144310 90249111
 D s-crtl.ads		20130102105938 1ea48bce
 D s-exctab.ads		20090417131547 66e51330
@@ -60,23 +60,34 @@ X 1 ada.ads
 16K9*Ada 19e8 14|2r6 2r23
 X 7 a-textio.ads
 49K13*Text_IO 471e16 14|2w10 2r27
-242U14*Put 14|27s17 28s17
+166U14*New_Line 14|32s17 39s17 46s17 53s17
+242U14*Put 14|27s17 30s25 34s17 37s25 41s17 44s25 48s17 51s25 55s17 58s25
 X 10 fifo.ads
 3k9*Fifo 20e9 14|1w6 5r33
-4R9 Fifo_Type 14|7r24[5] 8r25[5] 9r28[5] 10r25[5] 11r26[5]
-5U14 Push 14|16s17[5] 19s17[5] 22s17[5]
-6U14 Pop 14|26s17[5]
-7V13 Is_Empty{boolean} 14|25s19[5]
+4R9 Fifo_Type 14|8r24[5] 9r25[5] 10r28[5] 11r25[5] 12r26[5]
+5U14 Push 14|19s17[5] 21s17[5] 65s17[5] 68s17[5] 71s17[5] 74s17[5] 77s17[5]
+6U14 Pop 14|18s17[5] 20s17[5] 29s25[5] 36s25[5] 43s25[5] 50s25[5] 57s25[5]
+7V13 Is_Empty{boolean} 14|28s27[5] 35s27[5] 42s27[5] 49s27[5] 56s27[5]
 X 14 mclock.adb
-4U11*Mclock 4b11 30l5 30t11
+4U11*Mclock 4b11 82l5 82t11
 5K17 Int_Fifo[10|3] 6r13
-7r9 Tray_one_min{10|4R9[5]} 16m22 16r22 25r28 26m21 26r21
-8r9 Tray_five_min{10|4R9[5]} 19m22 19r22
-9r9 Tray_fifteen_min{10|4R9[5]} 22m22 22r22
-10r9 Tray_one_hour{10|4R9[5]}
-11r9 Tray_collector{10|4R9[5]}
-12i9 Val{integer} 26m35 28r35
-15i13 I{integer}
-18i13 I{integer}
-21i13 I{integer}
+8r9 Tray_one_min{10|4R9[5]} 19m22 19r22 20m21 20r21 28r36 29m29 29r29 65m22
+. 65r22
+9r9 Tray_five_min{10|4R9[5]} 35r36 36m29 36r29 68m22 68r22
+10r9 Tray_fifteen_min{10|4R9[5]} 42r36 43m29 43r29 71m22 71r22
+11r9 Tray_one_hour{10|4R9[5]} 49r36 50m29 50r29 74m22 74r22
+12r9 Tray_collector{10|4R9[5]} 18m21 18r21 21m22 21r22 56r36 57m29 57r29
+. 77m22 77r22
+13i9 Val{integer} 18m37 19r35 20m35 21r38 29m43 30r43 36m44 37r43 43m47 44r43
+. 50m44 51r43 57m45 58r43
+14i9 H{integer} 80m9 81m9
+16V18 tr{integer} 16b18 16>21 23t12 80s14
+16i21 status{integer} 22r24
+24V18 print_trays{integer} 24b18 24>30 61t12 81s14
+24i30 status{integer} 60r24
+64i13 I{integer}
+67i13 I{integer}
+70i13 I{integer}
+73i13 I{integer}
+76i13 I{integer}
 
