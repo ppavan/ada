@@ -36,7 +36,25 @@ package body Fifo is
       end if;
       Free(Temp);
    end Pop;
+
+   ---------
+   -- Peek --
+   ---------
  
+   procedure Peek (List : in out Fifo_Type; Item : out Element_Type) is
+      procedure Free is new Ada.Unchecked_Deallocation(Fifo_Element, Fifo_Ptr);
+      Temp : Fifo_Ptr := List.Tail;
+   begin
+      if List.Head = null then
+         raise Empty_Error;
+      end if;
+      Item := List.Tail.Value;
+      if List.Tail = null then
+         List.Head := null;
+      end if;
+      Free(Temp);
+   end Peek;
+
    --------------
    -- Is_Empty --
    --------------
