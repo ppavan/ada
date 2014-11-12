@@ -1,0 +1,119 @@
+V "GNAT Lib v4.8"
+M P W=b
+P ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DELAY
+RV NO_EXCEPTIONS
+RV NO_FIXED_POINT
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_RELATIVE_DELAY
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_OBSOLESCENT_FEATURES
+RV SPARK
+
+U mclock%b		mclock.adb		afa735e7 NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z ada.unchecked_deallocation%s
+W fifo%s		fifo.adb		fifo.ali
+W system%s		system.ads		system.ali
+W system.exception_table%s  s-exctab.adb	s-exctab.ali
+W system.img_int%s	s-imgint.adb		s-imgint.ali
+W system.standard_library%s  s-stalib.adb	s-stalib.ali
+
+D ada.ads		20070406091342 3ffc8e18
+D a-calend.ads		20120515092648 d86d6c8c
+D a-caldel.ads		20090409150019 9f20b83d
+D a-except.ads		20120716125141 10fcae55
+D a-finali.ads		20111121113555 52ecdc1b
+D a-ioexce.ads		20091130110856 8b9de6cd
+D a-stream.ads		20090409150019 2ca4ee37
+D a-tags.ads		20111212115430 6c0509d0
+D a-textio.ads		20130104124955 386df5d4
+D a-unccon.ads		20070406091342 f9eb8f06
+D a-uncdea.ads		20070406091342 f15a5ed1
+D fifo.ads		20141105194929 21637bc9
+D fifo.adb		20141107033504 e2c66441
+D interfac.ads		20110906094621 129923ea
+D i-cstrea.ads		20130102105938 3286f6aa
+D mclock.adb		20141112001349 b6a9bbfa
+D system.ads		20140416144310 90249111
+D s-crtl.ads		20130102105938 1ea48bce
+D s-exctab.ads		20090417131547 66e51330
+D s-ficobl.ads		20120709130952 55a71d43
+D s-finmas.ads		20111024091915 b95bb341
+D s-finroo.ads		20120426095924 4ff27390
+D s-imgint.ads		20090409150019 02dbe0c2
+D s-parame.ads		20110830140625 b6e20cc0
+D s-pooglo.ads		20110804083314 542f33d0
+D s-soflin.ads		20120515094619 24c8153c
+D s-stache.ads		20090417130712 596fc1b4
+D s-stalib.ads		20130104124955 f78bcf95
+D s-stoele.ads		20090417130712 facd7d98
+D s-stoele.adb		20100617152355 afc5dc80
+D s-stopoo.ads		20111013103733 7b8fbeee
+D s-traent.ads		20090417130712 5221ee41
+D s-unstyp.ads		20090409150019 6ae15c76
+D s-wchcon.ads		20090417130712 bfeb2e3d
+X 1 ada.ads
+16K9*Ada 19e8 16|2r6 2r23 110r17
+X 9 a-textio.ads
+49K13*Text_IO 471e16 16|2w10 2r27 110r21
+166U14*New_Line 16|72s17 80s17 88s17 96s17 124s17
+242U14*Put 16|66s17 69s25 74s17 77s25 82s17 85s25 90s17 93s25 98s17 101s25
+. 110s29
+X 12 fifo.ads
+3k9*Fifo 20e9 16|1w6 5r33
+4R9 Fifo_Type 16|8r24[5] 9r25[5] 10r28[5] 11r25[5] 12r26[5]
+5U14 Push 16|28s17[5] 29s17[5] 37s25[5] 40s25[5] 43s25[5] 46s25[5] 49s25[5]
+. 70s25[5] 78s25[5] 86s25[5] 94s25[5] 102s25[5]
+6U14 Pop 16|26s17[5] 27s17[5] 68s25[5] 76s25[5] 84s25[5] 92s25[5] 100s25[5]
+X 16 mclock.adb
+4U11*Mclock 4b11 126l5 126t11
+5K17 Int_Fifo[12|3] 6r13
+8r9 Tray_one_min{12|4R9[5]} 27m21 27r21 28m22 28r22 37m30 37r30 68m29 68r29
+. 70m30 70r30
+9r9 Tray_five_min{12|4R9[5]} 40m30 40r30 76m29 76r29 78m30 78r30
+10r9 Tray_fifteen_min{12|4R9[5]} 43m30 43r30 84m29 84r29 86m30 86r30
+11r9 Tray_one_hour{12|4R9[5]} 46m30 46r30 92m29 92r29 94m30 94r30
+12r9 Tray_collector{12|4R9[5]} 26m21 26r21 29m22 29r22 49m30 49r30 100m29
+. 100r29 102m30 102r30
+13i9 Val{integer} 26m37 28r35 76m44 77r43 78r45 84m47 85r43 86r48 92m44 93r43
+. 94r45 100m45 101r43 102r46
+14i9 Temp{integer} 27m35 29r38
+15i9 ptemp{integer} 68m43 69r43 70r44
+16i9 H{integer} 115m9 116m9 119m17 121m17 123m17
+17i9 l{integer} 117m9
+18i9 size_of_one_min{integer} 59m17
+19i9 size_of_five_min{integer} 60m17
+20i9 size_of_fifteen_min{integer} 61m17
+21i9 size_of_one_hour{integer} 62m17
+22i9 size_of_collector{integer} 63m17
+24V18 tr{integer} 24b18 24>21 31t12 123s22
+24i21 status{integer} 30r24
+33V18 initial_tray_setup{integer} 33b18 33>37 53t12 115s14
+33i37 status{integer} 52r24
+36i21 I{integer}
+39i21 I{integer}
+42i21 I{integer}
+45i21 I{integer}
+48i21 I{integer}
+56V18 print_trays{integer} 56b18 56>30 105t12 119s22
+56i30 status{integer} 104r24
+67i21 X{integer}
+75i21 X{integer}
+83i21 X{integer}
+91i21 X{integer}
+99i21 X{integer}
+108V18 clear_screen{integer} 108b18 108>31 112t12 116s14 121s22
+108i31 status{integer} 111r24
+118i13 I{integer}
+
