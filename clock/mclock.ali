@@ -16,7 +16,7 @@ RV NO_DEFAULT_INITIALIZATION
 RV NO_OBSOLESCENT_FEATURES
 RV SPARK
 
-U mclock%b		mclock.adb		afa735e7 NE OO SU
+U mclock%b		mclock.adb		360752b3 NE OO SU
 W ada%s			ada.ads			ada.ali
 W ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
@@ -44,7 +44,7 @@ D fifo.ads		20141105194929 21637bc9
 D fifo.adb		20141107033504 e2c66441
 D interfac.ads		20110906094621 129923ea
 D i-cstrea.ads		20130102105938 3286f6aa
-D mclock.adb		20141112001349 b6a9bbfa
+D mclock.adb		20141112001941 2f09dcae
 D system.ads		20140416144310 90249111
 D s-crtl.ads		20130102105938 1ea48bce
 D s-exctab.ads		20090417131547 66e51330
@@ -92,11 +92,11 @@ X 16 mclock.adb
 15i9 ptemp{integer} 68m43 69r43 70r44
 16i9 H{integer} 115m9 116m9 119m17 121m17 123m17
 17i9 l{integer} 117m9
-18i9 size_of_one_min{integer} 59m17
-19i9 size_of_five_min{integer} 60m17
-20i9 size_of_fifteen_min{integer} 61m17
-21i9 size_of_one_hour{integer} 62m17
-22i9 size_of_collector{integer} 63m17
+18i9 size_of_one_min{integer} 59m17 67r29
+19i9 size_of_five_min{integer} 60m17 75r29
+20i9 size_of_fifteen_min{integer} 61m17 83r29
+21i9 size_of_one_hour{integer} 62m17 91r29
+22i9 size_of_collector{integer} 63m17 99r29
 24V18 tr{integer} 24b18 24>21 31t12 123s22
 24i21 status{integer} 30r24
 33V18 initial_tray_setup{integer} 33b18 33>37 53t12 115s14

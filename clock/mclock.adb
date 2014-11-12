@@ -60,11 +60,11 @@ procedure Mclock is
 		size_of_five_min := 2;
 		size_of_fifteen_min := 3;
 		size_of_one_hour := 11;
-		size_of_collector := 20;
+		size_of_collector := 21;
 		--------------
 		--tray one min
 		Put("Tray A (one min):     ");
-		for X in 1..4 loop
+		for X in 1..size_of_one_min loop
       			Pop(Tray_one_min, ptemp);
       			Put(Integer'Image(ptemp));
 			Push(Tray_one_min, ptemp);
@@ -72,7 +72,7 @@ procedure Mclock is
 		New_Line;
 		--tray five min
 		Put("Tray B (five min):    ");	
-		for X in 1..2 loop
+		for X in 1..size_of_five_min loop
       			Pop(Tray_five_min, Val);
       			Put(Integer'Image(Val));
 			Push(Tray_five_min, Val);
@@ -80,7 +80,7 @@ procedure Mclock is
 		New_Line;
 		--tray fifteen min
 		Put("Tray C (fifteen min): ");
-		for X in 1..3 loop
+		for X in 1..size_of_fifteen_min loop
       			Pop(Tray_fifteen_min, Val);
       			Put(Integer'Image(Val));
 			Push(Tray_fifteen_min, Val);
@@ -88,7 +88,7 @@ procedure Mclock is
 		New_Line;
 		--tray one hour
 		Put("Tray D (One Hour):    ");
-		for X in 1..11 loop
+		for X in 1..size_of_one_hour loop
       			Pop(Tray_one_hour, Val);
       			Put(Integer'Image(Val));
 			Push(Tray_one_hour, Val);
@@ -96,7 +96,7 @@ procedure Mclock is
 		New_Line;
 		--tray collector
 		Put("Tray E (Collector):   ");
-		for X in 1..21 loop
+		for X in 1..size_of_collector loop
       			Pop(Tray_collector, Val);
       			Put(Integer'Image(Val));
 			Push(Tray_collector, Val);
@@ -104,7 +104,7 @@ procedure Mclock is
 		return status;
 	end;
 	-- Display function end -----------------------------------------
-	-- clear screen function start
+	-- clear screen function start here
 	function clear_screen(status: Integer) return Integer is
 	begin
 		Ada.Text_IO.Put(ASCII.ESC & "[2J");
