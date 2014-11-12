@@ -12,8 +12,9 @@ procedure Mclock is
    	Tray_collector : Fifo_Type;-- this is a reserve tray size 21 (4+2+3+11+1(trigger))
   	Val : Integer;
 	Temp : Integer;
+	ptemp : Integer;
 	H : Integer;
-	X : Integer;
+	l : Integer;
 	size_of_one_min : Integer;
 	size_of_five_min : Integer;
 	size_of_fifteen_min : Integer;
@@ -63,54 +64,43 @@ procedure Mclock is
 		--------------
 		--tray one min
 		Put("Tray A (one min):     ");
-		While_Loop:
-			while X <= size_of_one_min  loop
-      			Pop(Tray_one_min, Val);
-      			Put(Integer'Image(Val));
-			Push(Tray_one_min, Val);
-			X := X + 1;
-   		end loop While_Loop;
+		for X in 1..4 loop
+      			Pop(Tray_one_min, ptemp);
+      			Put(Integer'Image(ptemp));
+			Push(Tray_one_min, ptemp);
+   		end loop;
 		New_Line;
-		X := 0;
 		--tray five min
 		Put("Tray B (five min):    ");	
-		while X <= size_of_five_min loop
+		for X in 1..2 loop
       			Pop(Tray_five_min, Val);
       			Put(Integer'Image(Val));
 			Push(Tray_five_min, Val);
-			X := X + 1;
    		end loop;
 		New_Line;
-		X := 0;
 		--tray fifteen min
 		Put("Tray C (fifteen min): ");
-		while X <= size_of_fifteen_min loop
+		for X in 1..3 loop
       			Pop(Tray_fifteen_min, Val);
       			Put(Integer'Image(Val));
 			Push(Tray_fifteen_min, Val);
-			X := X + 1;
    		end loop;
 		New_Line;
-		X := 0;
 		--tray one hour
 		Put("Tray D (One Hour):    ");
-		while X <= size_of_one_hour loop
+		for X in 1..11 loop
       			Pop(Tray_one_hour, Val);
       			Put(Integer'Image(Val));
 			Push(Tray_one_hour, Val);
-			X := X + 1;
    		end loop;
 		New_Line;
-		X := 0;
 		--tray collector
 		Put("Tray E (Collector):   ");
-		while X <= size_of_collector loop
+		for X in 1..21 loop
       			Pop(Tray_collector, Val);
       			Put(Integer'Image(Val));
 			Push(Tray_collector, Val);
-			X := X + 1;
    		end loop;
-		X := 0;
 		return status;
 	end;
 	-- Display function end -----------------------------------------
@@ -124,15 +114,13 @@ procedure Mclock is
 begin	-- main here
 	H := initial_tray_setup(1);
 	H := clear_screen(1);
-	X := 0;
-	While_Loop:
-		while X <= 3 loop
-			H := print_trays(1);
-			delay Duration(1.0);--print and wait for a sec
-			H := clear_screen(1);
-			delay Duration(1.0);--clear and wait for a sec
-			H := tr(1);
-			New_Line;
-			X := X + 1;
-	end loop While_Loop;
+	l := 0;
+	for I in 1..5 loop
+		H := print_trays(1);
+		delay Duration(1.0);--print and wait for a sec
+		H := clear_screen(1);
+		delay Duration(1.0);--clear and wait for a sec
+		H := tr(1);
+		New_Line;
+	end loop;
 end Mclock;
