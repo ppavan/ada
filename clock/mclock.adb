@@ -36,23 +36,24 @@ procedure Mclock is
 	-- functions
 	function push_to_one_min(status: Integer) return Integer is
 	begin
-		if size_of_one_min < max_size_of_one_min then	
-			Pop(Tray_collector, Val);--when one min tray is full we have not yet poped collector
-			Push(Tray_one_min,Val);
-			size_of_one_min := size_of_one_min + 1;
-			size_of_collector := size_of_collector - 1;
-		else
-			Pop(Tray_one_min, Val);
-			Push(Tray_five_min, Val);
-			size_of_five_min := size_of_five_min + 1;	
-		end if;
+		Pop(Tray_collector, Val);--when one min tray is full we have not yet poped collector
+		Push(Tray_one_min,Val);
+		size_of_one_min := size_of_one_min + 1;
+		size_of_collector := size_of_collector - 1;
 		return status;
 	end;
 	function push_to_five_min(status: Integer) return Integer is
 	begin
 		Pop(Tray_one_min, Val);
 		Push(Tray_five_min, Val);
-		size_of_five_min := size_of_one_min + 1;
+		size_of_one_min := size_of_one_min -1 ;
+		size_of_five_min := size_of_five_min + 1;
+		for I in 1..3 loop -- reset the minute tray
+			Pop(Tray_one_min, Val);
+			Push(Tray_collector, Val);
+			size_of_one_min := size_of_one_min - 1;
+			size_of_collector := size_of_collector + 1;
+		end loop;
 	return status;
 	end;
 	-- Initial tray setup start -----------------------------------
@@ -144,7 +145,11 @@ begin	-- main here
 		delay Duration(1.0);--print and wait for a sec
 		H := clear_screen(1);
 		delay Duration(1.0);--clear and wait for a sec
-		H := push_to_one_min(1);
+		if size_of_one_min < max_size_of_one_min then
+			H := push_to_one_min(1);-- size of one min inc and collector dec
+			elsif size_of_five_min < max_size_of_five_min then
+				H := push_to_five_min(1);
+		end if;
 		New_Line;
 	end loop;
 end Mclock;
