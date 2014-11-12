@@ -1,3 +1,6 @@
+with Ada.Calendar; use Ada.Calendar;
+with Ada.Calendar.Formatting; use Ada.Calendar.Formatting;
+with Ada.Calendar.Time_Zones; use Ada.Calendar.Time_Zones;
 with Fifo;
 with Ada.Text_Io; use Ada.Text_Io;
  
@@ -5,29 +8,46 @@ procedure Mclock is
    	package Int_Fifo is new Fifo(Integer);
    	use Int_Fifo;
 	-- Declarations
+	-- FIFO Declarations
   	Tray_one_min : Fifo_Type;-- first tray size 4
   	Tray_five_min : Fifo_Type;-- scond tray size 2
    	Tray_fifteen_min : Fifo_Type;-- third tray size 3
  	Tray_one_hour : Fifo_Type;-- fourth tray size 11
    	Tray_collector : Fifo_Type;-- this is a reserve tray size 21 (4+2+3+11+1(trigger))
-  	Val : Integer;
+  	-- temporary variables
+	Val : Integer;
 	Temp : Integer;
 	ptemp : Integer;
 	H : Integer;
 	l : Integer;
+	-- flags
+	is_one_min_full : Integer;
+	is_five_min_full : Integer;
+	is_fifteen_min_full : Integer;
+	is_one_hour_full : Integer;
+	-- size variables
 	size_of_one_min : Integer;
 	size_of_five_min : Integer;
 	size_of_fifteen_min : Integer;
 	size_of_one_hour : Integer;
 	size_of_collector : Integer;
+	Now : Time := Clock;
 	-- functions
-	function tr(status: Integer) return Integer is
+	function push_to_one_min(status: Integer) return Integer is
 	begin
 		Pop(Tray_collector, Val);
 		Pop(Tray_one_min, Temp);
 		Push(Tray_one_min,Val);
 		Push(Tray_collector, Temp);
+		--is_one_min_full := 1;
+		-- once this is full set the flag
+		-- if flag is set then reset this list and call push_to_five_min
 		return status;
+	end;
+	function push_to_five_min(status: Integer) return Integer is
+	begin
+		--pop from min list and push here and pop a null from here and push to 
+		--collector
 	end;
 	-- Initial tray setup start -----------------------------------
 	function initial_tray_setup(status: Integer) return Integer is
@@ -113,14 +133,21 @@ procedure Mclock is
 	-- clear screen function end
 begin	-- main here
 	H := initial_tray_setup(1);
+	-- Setup flags
+	is_one_min_full := 0;
+	is_five_min_full := 0;
+	is_fifteen_min_full := 0;
+	is_one_hour_full := 0;
+	--------------
 	H := clear_screen(1);
 	l := 0;
 	for I in 1..5 loop
+		Put_line(Image(Date => Now, Time_Zone => -7*60));
 		H := print_trays(1);
 		delay Duration(1.0);--print and wait for a sec
 		H := clear_screen(1);
 		delay Duration(1.0);--clear and wait for a sec
-		H := tr(1);
+		H := push_to_one_min(1);
 		New_Line;
 	end loop;
 end Mclock;

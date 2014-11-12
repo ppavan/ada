@@ -1,9 +1,10 @@
 V "GNAT Lib v4.8"
 M P W=b
-P ZX
+P SS ZX
 
 RN
 RV NO_ALLOCATORS
+RV NO_CALENDAR
 RV NO_DELAY
 RV NO_EXCEPTIONS
 RV NO_FIXED_POINT
@@ -11,14 +12,18 @@ RV NO_IO
 RV NO_IMPLICIT_CONDITIONALS
 RV NO_LOCAL_ALLOCATORS
 RV NO_RELATIVE_DELAY
+RV NO_SECONDARY_STACK
 RV NO_STANDARD_STORAGE_POOLS
 RV NO_DEFAULT_INITIALIZATION
 RV NO_OBSOLESCENT_FEATURES
 RV SPARK
 
-U mclock%b		mclock.adb		360752b3 NE OO SU
+U mclock%b		mclock.adb		92d5b85a NE OO SU
 W ada%s			ada.ads			ada.ali
+W ada.calendar%s	a-calend.adb		a-calend.ali
 W ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
+W ada.calendar.formatting%s  a-calfor.adb	a-calfor.ali
+W ada.calendar.time_zones%s  a-catizo.adb	a-catizo.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
 W ada.tags%s		a-tags.adb		a-tags.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
@@ -27,11 +32,14 @@ W fifo%s		fifo.adb		fifo.ali
 W system%s		system.ads		system.ali
 W system.exception_table%s  s-exctab.adb	s-exctab.ali
 W system.img_int%s	s-imgint.adb		s-imgint.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 W system.standard_library%s  s-stalib.adb	s-stalib.ali
 
 D ada.ads		20070406091342 3ffc8e18
 D a-calend.ads		20120515092648 d86d6c8c
 D a-caldel.ads		20090409150019 9f20b83d
+D a-calfor.ads		20090220152038 0a6f9afc
+D a-catizo.ads		20120123093331 409d7e5b
 D a-except.ads		20120716125141 10fcae55
 D a-finali.ads		20111121113555 52ecdc1b
 D a-ioexce.ads		20091130110856 8b9de6cd
@@ -44,7 +52,7 @@ D fifo.ads		20141105194929 21637bc9
 D fifo.adb		20141107033504 e2c66441
 D interfac.ads		20110906094621 129923ea
 D i-cstrea.ads		20130102105938 3286f6aa
-D mclock.adb		20141112001941 2f09dcae
+D mclock.adb		20141112011605 1944be6c
 D system.ads		20140416144310 90249111
 D s-crtl.ads		20130102105938 1ea48bce
 D s-exctab.ads		20090417131547 66e51330
@@ -54,6 +62,7 @@ D s-finroo.ads		20120426095924 4ff27390
 D s-imgint.ads		20090409150019 02dbe0c2
 D s-parame.ads		20110830140625 b6e20cc0
 D s-pooglo.ads		20110804083314 542f33d0
+D s-secsta.ads		20110830140625 eea35a36
 D s-soflin.ads		20120515094619 24c8153c
 D s-stache.ads		20090417130712 596fc1b4
 D s-stalib.ads		20130104124955 f78bcf95
@@ -64,56 +73,74 @@ D s-traent.ads		20090417130712 5221ee41
 D s-unstyp.ads		20090409150019 6ae15c76
 D s-wchcon.ads		20090417130712 bfeb2e3d
 X 1 ada.ads
-16K9*Ada 19e8 16|2r6 2r23 110r17
-X 9 a-textio.ads
-49K13*Text_IO 471e16 16|2w10 2r27 110r21
-166U14*New_Line 16|72s17 80s17 88s17 96s17 124s17
-242U14*Put 16|66s17 69s25 74s17 77s25 82s17 85s25 90s17 93s25 98s17 101s25
-. 110s29
-X 12 fifo.ads
-3k9*Fifo 20e9 16|1w6 5r33
-4R9 Fifo_Type 16|8r24[5] 9r25[5] 10r28[5] 11r25[5] 12r26[5]
-5U14 Push 16|28s17[5] 29s17[5] 37s25[5] 40s25[5] 43s25[5] 46s25[5] 49s25[5]
-. 70s25[5] 78s25[5] 86s25[5] 94s25[5] 102s25[5]
-6U14 Pop 16|26s17[5] 27s17[5] 68s25[5] 76s25[5] 84s25[5] 92s25[5] 100s25[5]
-X 16 mclock.adb
-4U11*Mclock 4b11 126l5 126t11
-5K17 Int_Fifo[12|3] 6r13
-8r9 Tray_one_min{12|4R9[5]} 27m21 27r21 28m22 28r22 37m30 37r30 68m29 68r29
-. 70m30 70r30
-9r9 Tray_five_min{12|4R9[5]} 40m30 40r30 76m29 76r29 78m30 78r30
-10r9 Tray_fifteen_min{12|4R9[5]} 43m30 43r30 84m29 84r29 86m30 86r30
-11r9 Tray_one_hour{12|4R9[5]} 46m30 46r30 92m29 92r29 94m30 94r30
-12r9 Tray_collector{12|4R9[5]} 26m21 26r21 29m22 29r22 49m30 49r30 100m29
-. 100r29 102m30 102r30
-13i9 Val{integer} 26m37 28r35 76m44 77r43 78r45 84m47 85r43 86r48 92m44 93r43
-. 94r45 100m45 101r43 102r46
-14i9 Temp{integer} 27m35 29r38
-15i9 ptemp{integer} 68m43 69r43 70r44
-16i9 H{integer} 115m9 116m9 119m17 121m17 123m17
-17i9 l{integer} 117m9
-18i9 size_of_one_min{integer} 59m17 67r29
-19i9 size_of_five_min{integer} 60m17 75r29
-20i9 size_of_fifteen_min{integer} 61m17 83r29
-21i9 size_of_one_hour{integer} 62m17 91r29
-22i9 size_of_collector{integer} 63m17 99r29
-24V18 tr{integer} 24b18 24>21 31t12 123s22
-24i21 status{integer} 30r24
-33V18 initial_tray_setup{integer} 33b18 33>37 53t12 115s14
-33i37 status{integer} 52r24
-36i21 I{integer}
-39i21 I{integer}
-42i21 I{integer}
-45i21 I{integer}
-48i21 I{integer}
-56V18 print_trays{integer} 56b18 56>30 105t12 119s22
-56i30 status{integer} 104r24
-67i21 X{integer}
-75i21 X{integer}
-83i21 X{integer}
-91i21 X{integer}
-99i21 X{integer}
-108V18 clear_screen{integer} 108b18 108>31 112t12 116s14 121s22
-108i31 status{integer} 111r24
-118i13 I{integer}
+16K9*Ada 19e8 18|1r6 1r24 2r6 2r35 3r6 3r35 5r6 5r23 123r17
+X 2 a-calend.ads
+36K13*Calendar 375e17 18|1w10 1r28 2r10 2r39 3r10 3r39
+38I9*Time 18|34r15
+52V13*Clock{38I9} 18|34s23
+X 4 a-calfor.ads
+24K22*Formatting 215e28 18|2w19 2r48
+176V13*Image{string} 18|138s26
+177i7 Date{2|38I9} 18|138r32
+179i7 Time_Zone{5|23I9} 18|138r45
+X 5 a-catizo.ads
+19K22*Time_Zones 32e28 18|3w19 3r48
+23I9*Time_Offset<short_integer>
+X 11 a-textio.ads
+49K13*Text_IO 471e16 18|5w10 5r27 123r21
+166U14*New_Line 18|85s17 93s17 101s17 109s17 144s17
+242U14*Put 18|79s17 82s25 87s17 90s25 95s17 98s25 103s17 106s25 111s17 114s25
+. 123s29
+263U14*Put_Line 18|138s17
+X 14 fifo.ads
+3k9*Fifo 20e9 18|4w6 8r33
+4R9 Fifo_Type 18|12r24[8] 13r25[8] 14r28[8] 15r25[8] 16r26[8]
+5U14 Push 18|40s17[8] 41s17[8] 50s25[8] 53s25[8] 56s25[8] 59s25[8] 62s25[8]
+. 83s25[8] 91s25[8] 99s25[8] 107s25[8] 115s25[8]
+6U14 Pop 18|38s17[8] 39s17[8] 81s25[8] 89s25[8] 97s25[8] 105s25[8] 113s25[8]
+X 18 mclock.adb
+7U11*Mclock 7b11 146l5 146t11
+8K17 Int_Fifo[14|3] 9r13
+12r9 Tray_one_min{14|4R9[8]} 39m21 39r21 40m22 40r22 50m30 50r30 81m29 81r29
+. 83m30 83r30
+13r9 Tray_five_min{14|4R9[8]} 53m30 53r30 89m29 89r29 91m30 91r30
+14r9 Tray_fifteen_min{14|4R9[8]} 56m30 56r30 97m29 97r29 99m30 99r30
+15r9 Tray_one_hour{14|4R9[8]} 59m30 59r30 105m29 105r29 107m30 107r30
+16r9 Tray_collector{14|4R9[8]} 38m21 38r21 41m22 41r22 62m30 62r30 113m29
+. 113r29 115m30 115r30
+18i9 Val{integer} 38m37 40r35 89m44 90r43 91r45 97m47 98r43 99r48 105m44
+. 106r43 107r45 113m45 114r43 115r46
+19i9 Temp{integer} 39m35 41r38
+20i9 ptemp{integer} 81m43 82r43 83r44
+21i9 H{integer} 128m9 135m9 139m17 141m17 143m17
+22i9 l{integer} 136m9
+24i9 is_one_min_full{integer} 42m17 130m9
+25i9 is_five_min_full{integer} 131m9
+26i9 is_fifteen_min_full{integer} 132m9
+27i9 is_one_hour_full{integer} 133m9
+29i9 size_of_one_min{integer} 72m17 80r29
+30i9 size_of_five_min{integer} 73m17 88r29
+31i9 size_of_fifteen_min{integer} 74m17 96r29
+32i9 size_of_one_hour{integer} 75m17 104r29
+33i9 size_of_collector{integer} 76m17 112r29
+34i9 Now{2|38I9} 138r40
+36V18 push_to_one_min{integer} 36b18 36>34 44t12 143s22
+36i34 status{integer} 43r24
+46V18 initial_tray_setup{integer} 46b18 46>37 66t12 128s14
+46i37 status{integer} 65r24
+49i21 I{integer}
+52i21 I{integer}
+55i21 I{integer}
+58i21 I{integer}
+61i21 I{integer}
+69V18 print_trays{integer} 69b18 69>30 118t12 139s22
+69i30 status{integer} 117r24
+80i21 X{integer}
+88i21 X{integer}
+96i21 X{integer}
+104i21 X{integer}
+112i21 X{integer}
+121V18 clear_screen{integer} 121b18 121>31 125t12 135s14 141s22
+121i31 status{integer} 124r24
+137i13 I{integer}
 
