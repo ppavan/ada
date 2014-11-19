@@ -16,7 +16,7 @@ RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_OBSOLESCENT_FEATURES
 RV SPARK_05
 
-U main%b		main.adb		4bf9ba26 NE OO SU IL
+U main%b		main.adb		503d6fa4 NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
@@ -45,7 +45,7 @@ D a-tiinio.ads		20140406181358 aa04e5d6 ada.text_io.integer_io%s
 D a-unccon.ads		20140406181358 f9eb8f06 ada.unchecked_conversion%s
 D interfac.ads		20140406181358 69adb1b9 interfaces%s
 D i-cstrea.ads		20140406181356 febc86ed interfaces.c_streams%s
-D main.adb		20141113221030 aa30ef44 main%b
+D main.adb		20141118233932 b1f43ac6 main%b
 D system.ads		20140406181358 5fc8ae56 system%s
 D s-crtl.ads		20140406181356 2c012597 system.crtl%s
 D s-exctab.ads		20140406181354 54135002 system.exception_table%s
@@ -70,7 +70,7 @@ D s-unstyp.ads		20140406181356 510692af system.unsigned_types%s
 D s-valuns.ads		20140406181358 10a8ed3b system.val_uns%s
 D s-wchcon.ads		20140406181358 1b7d22d2 system.wch_con%s
 X 1 ada.ads
-16K9*Ada 19e8 18|1r6 1r19 2r5 2r18 3r6 21r28 169r4 175r7
+16K9*Ada 19e8 18|1r6 1r19 2r5 2r18 3r6 21r28 173r4 217r7
 X 6 a-inteio.ads
 18K13*Integer_Text_IO[14|46] 18|1w23 2r22
 X 8 a-numeri.ads
@@ -79,67 +79,67 @@ X 9 a-nudira.ads
 42E9 Result_Subtype 18|22r7
 44k22*Discrete_Random 73e33 18|3w19 21r41
 48R9 Generator<28|58R9> 18|23r16[21]
-50V13 Random{integer} 18|28s29[21] 177s25[21] 179s29[21] 183s28[21]
-50r21 Gen{48R9[18|21]} 18|28r36[21] 177r32[21] 179r36[21] 183r35[21]
-53U14 Reset<28|95p14> 18|150s13[21]
-53r21 Gen{48R9[18|21]} 18|150r20[21]
+50V13 Random{integer} 18|28s29[21] 178s25[21] 180s29[21] 184s28[21]
+50r21 Gen{48R9[18|21]} 18|28r36[21] 178r32[21] 180r36[21] 184r35[21]
+53U14 Reset<28|95p14> 18|153s13[21]
+53r21 Gen{48R9[18|21]} 18|153r20[21]
 X 10 a-nudira.adb
 51V16 Random[28|78]{integer} 29|390b13[18|21]
 X 13 a-textio.ads
-49K13*Text_IO 471e16 18|1w10 2r9 169r8 175r11
+49K13*Text_IO 471e16 18|1w10 2r9 173r8 217r11
 73I12*Field{integer}
-166U14*New_Line 18|65s13 74s13 86s10 89s10 101s13 163s4
-242U14*Put 18|56s10 66s13 70s19 73s13 82s7 83s29 84s33 85s32 87s10 98s13
-. 100s13 118s19 157s4 169s16 175s19
-263U14*Put_Line 18|38s10 63s13 108s16 113s16 117s19 128s16 137s13
+166U14*New_Line 18|55s7 65s13 68s13 77s13 89s10 92s10 104s13
+242U14*Put 18|58s10 69s13 73s19 76s13 85s7 86s29 87s33 88s32 90s10 101s13
+. 103s13 121s19 173s16 217s19
+263U14*Put_Line 18|37s7 39s10 66s13 111s16 116s16 120s19 131s16 140s13
 X 14 a-tiinio.ads
-56U14*Get 18|39s10[6|18] 102s13[6|18] 109s16[6|18]
-66U14*Put 18|59s16[6|18] 69s19[6|18] 83s7[6|18] 84s10[6|18] 85s10[6|18] 88s10[6|18]
-. 99s13[6|18] 121s25[6|18] 160s10[6|18]
-68i7 Width{13|73I12} 18|59r23[6|18] 69r26[6|18] 83r18[6|18] 84r22[6|18] 85r21[6|18]
-. 88r35[6|18] 99r30[6|18] 121r32[6|18] 160r17[6|18]
+56U14*Get 18|40s10[6|18] 105s13[6|18] 112s16[6|18]
+66U14*Put 18|61s16[6|18] 72s19[6|18] 86s7[6|18] 87s10[6|18] 88s10[6|18] 91s10[6|18]
+. 102s13[6|18] 124s25[6|18]
+68i7 Width{13|73I12} 18|61r23[6|18] 72r26[6|18] 86r18[6|18] 87r22[6|18] 88r21[6|18]
+. 91r35[6|18] 102r30[6|18] 124r32[6|18]
 X 16 interfac.ads
 63M9*Unsigned_32
 66M9*Unsigned_64
 X 18 main.adb
-5U11*main 5b11 218l5 218t9
+5U11*main 5b11 223l5 223t9
 6A9 criminal(integer)<integer> 7r18 8r14
-7a4 criminallist{6A9} 28m7 29r17 29r33 29r49 30r9 30r25 30r41 30r57 68r38
-. 112r16 120r25 147m4 159r10 186r10 189r10 192r10
-8a4 guessed{6A9} 54r10 54r23 54r36 54r49 54r62 55r12 55r25 58r16 68r19 107r19
-. 111m13 148m4
+7a4 criminallist{6A9} 28m7 29r17 29r33 29r49 30r9 30r25 30r41 30r57 71r38
+. 115r16 123r25 150m4 187r10 190r10 193r10
+8a4 guessed{6A9} 56r10 56r23 56r36 56r49 56r62 57r12 57r25 60r16 71r19 110r19
+. 114m13 151m4
 9A9 player(integer)<integer> 10r16
-10a4 playerlist{9A9} 43m10 45m10 45m30 47m10 47m30 47m50 96r11 129m16
-12i4 status{integer} 154m4 167m4 197m7 201m10 204m10 206m10 208m10
-13i4 first{integer} 83r11 177m7 180r30 184r29 186r23
-13i11 second{integer} 84r14 179m10 180r20 184r48 189r23
-13i19 third{integer} 85r14 183m10 184r20 184r39 192r23
-14i4 trigger{integer} 125m19 133m19 149m4 174r10
-15i4 numberofplayer{integer} 39m14 40r20 40r42 40r64 42r10 44r13 131m16 131r34
-. 132r19
-16i4 numberofperpetrator{integer} 88r14 176m7 187m10 190m10 190r33 193m10
-. 193r33 200r10
-17i4 perpetratorleft{integer} 62r13 96r43 115m16 115r35 116r19 151m4
-18i4 guesstemp{integer} 102m17 103r23 103r41 105r13 107r27 109m20 111r21
-. 112r29
+10a4 playerlist{9A9} 44m10 46m10 46m30 48m10 48m30 48m50 99r11 132m16
+12i4 status{integer} 157m4 170m4 202m10 205m10 206m10 208m10 209m10 211m10
+. 212m10
+13i4 first{integer} 86r11 178m7 181r30 185r29 187r23
+13i11 second{integer} 87r14 180m10 181r20 185r48 190r23
+13i19 third{integer} 88r14 184m10 185r20 185r39 193r23
+14i4 trigger{integer} 128m19 136m19 152m4 176r10
+15i4 numberofplayer{integer} 40m14 41r20 41r42 41r64 43r10 45r13 134m16 134r34
+. 135r19
+16i4 numberofperpetrator{integer} 91r14 177m7 188m10 191m10 191r33 194m10
+. 194r33 201r10
+17i4 perpetratorleft{integer} 64r13 99r43 118m16 118r35 119r19 154m4
+18i4 guesstemp{integer} 105m17 106r23 106r41 108r13 110r27 112m20 114r21
+. 115r29
 20I12 RandomRange{positive} 22r25
-21K12 Random_7[9|44] 23r7 28r20 150r4 177r16 179r20 183r19
-23r4 G{9|48R9[21]} 28r43 150r27 177r39 179r43 183r42
-25V13 generaterandom{integer} 25b13 25>28 33t7 154s14
+21K12 Random_7[9|44] 23r7 28r20 153r4 178r16 180r20 184r19
+23r4 G{9|48R9[21]} 28r43 153r27 178r39 180r43 184r42
+25V13 generaterandom{integer} 25b13 25>28 33t7 157s14
 25i28 status{integer} 32r14
-35V13 choosenumberofplayer{integer} 35b13 35>34 50t7 167s14
-35i34 status{integer} 49r14
-52V13 checkguessed{integer} 52b13 52>26 78t7 197s17
-52i26 status{integer} 77r14
-57i14 i{integer} 58r24 59r20
-67i17 i{integer} 68r27 68r51 69r23
-80V13 displayrandom{integer} 80b13 80>27 92t7 201s20
-80i27 status{integer} 91r14
-94V13 playerstatus{integer} 94b13 94>26 94>43 142t7 204s20 206s20 208s20
-94i26 status{integer} 141r14
-94i43 playerindex{integer} 96r22 99r17 129r27
-119i23 i{integer} 120r38 121r29
-158i8 i{integer} 159r23 160r14
+35V13 choosenumberofplayer{integer} 35b13 35>34 51t7 170s14
+35i34 status{integer} 50r14
+53V13 checkguessed{integer} 53b13 53>26 81t7 205s20 208s20 211s20
+53i26 status{integer} 80r14
+59i14 i{integer} 60r24 61r20
+70i17 i{integer} 71r27 71r51 72r23
+83V13 displayrandom{integer} 83b13 83>27 95t7 202s20
+83i27 status{integer} 94r14
+97V13 playerstatus{integer} 97b13 97>26 97>43 145t7 206s20 209s20 212s20
+97i26 status{integer} 144r14
+97i43 playerindex{integer} 99r22 102r17 132r27
+122i23 i{integer} 123r38 124r29
 X 28 s-rannum.ads
 70V13*Random{16|63M9} 29|219i21
 71V13*Random{16|66M9} 29|219i21

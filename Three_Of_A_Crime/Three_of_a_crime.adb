@@ -34,6 +34,7 @@ procedure main is
 
    function choosenumberofplayer(status: integer) return Integer is
    begin
+      Put_Line("Welcome to the Three of A Crime game");
       loop
          Put_Line("Enter the number of players between 1 to 3:");
          get(numberofplayer);
@@ -51,6 +52,7 @@ procedure main is
 
    function checkguessed(status: integer) return Integer is
    begin
+      new_line;
       if(guessed(1) + guessed(2) + guessed(3) + guessed(4) + guessed(5) +
            guessed(6) + guessed(7) > 0) then
          Put("The criminals has been guessed are:");
@@ -60,6 +62,7 @@ procedure main is
             end if;
         end loop;
          if(perpetratorleft = 3) then
+            new_line;
             Put_Line("None of these are the perpetrators");
          else
             New_Line;
@@ -71,7 +74,7 @@ procedure main is
                end if;
             end loop;
             put("are the perpetrators.");
-            new_line;
+            new_line(2);
          end if;
       end if;
       return status;
@@ -153,26 +156,24 @@ begin
 
    status := generaterandom(1);
 
-   --Show actual perpetrator for testing
-   Put("The actual perpetrator are:");
-   for i in 1..7 loop
-      if(criminallist(i) = 1) then
-         Put(i, width => 2);
-      end if;
-   end loop;
-   new_line;
+--     --Show actual perpetrator for testing
+--     Put("The actual perpetrator are:");
+--     for i in 1..7 loop
+--        if(criminallist(i) = 1) then
+--           Put(i, width => 2);
+--        end if;
+--     end loop;
+--     new_line;
 
 
    --Choose number of player
    status := choosenumberofplayer(1);
 
+   --     New_Line(32);
    Ada.Text_IO.Put(ASCII.ESC & "[2J");
-
-
 
    --Generating 3 random criminials
    while trigger = 0 loop
-      Ada.Text_IO.Put(ASCII.ESC & "[2J");
       numberofperpetrator := 0;
       first := Random_7.Random(Gen => G);
       loop
@@ -194,22 +195,26 @@ begin
       end if;
 
 
-      status := checkguessed(1);
+
 
       --no display of the right answer
       if numberofperpetrator /= 3 then
          status := displayrandom(1);
 
          --Game starts from player 1
+         status := checkguessed(1);
          status := playerstatus(1,1);
          --Game starts from player 2
+         status := checkguessed(1);
          status := playerstatus(1,2);
          --Game starts from player 3
+         status := checkguessed(1);
          status := playerstatus(1,3);
 
 
       end if;--numberofperpetrator /= 3
-
+             --        New_Line(32);
+      Ada.Text_IO.Put(ASCII.ESC & "[2J");
    end loop;--generating loop
 
 
